@@ -25,13 +25,55 @@ const questions = [
     correctAnswer: "console.log"
   },
 ];
-let questionCard = document.querySelector("#startDiv");
+let startDiv = document.getElementById("startDiv");
+let questionContainer = document.querySelector("#questionContainer");
 let startBtn = document.querySelector("#startBtn");
-
+let answerChoices = document.querySelectorAll(".chosenAnswer");
+let questionAsked = document.querySelector("#questionDisplay");
+var timerEl = document.querySelector("#time");
+let currentQuestion = 0;
+let timer = 50
+let timerID;
 
 startBtn.addEventListener("click", startQuiz);
-
+questionContainer.addEventListener("click", checkAnswer);
 
 function startQuiz() {
+  questionContainer.hidden = false;
+  startDiv.setAttribute("hidden", true);
+  const question = questions[currentQuestion];
+  questionAsked.textContent = question.question;
+  for (let i = 0; i < answerChoices.length; i++) {
+    answerChoices[i].textContent = question.answers[i];
+  }
+  timerID = setInterval(countDown, 1000)
+   
+}
+function countDown() {
+  if (timer === 0) {
+    clearInterval(timerID);
+  } 
+  timerEl.textContent = timer;
+  timer--; 
+}
 
+function displayTimer() {
+    document.querySelector("#time").textContent = timer;
+}
+
+
+function checkAnswer(event) {
+  if (event.target.classList.contains("chosenAnswer")) {
+    let userAnswer = event.target.textContent;
+    if (userAnswer === questions[currentQuestion].correctAnswer) {
+      currentQuestion++;
+      if (currentQuestion === questions.length) {
+        
+      } else {
+        startQuiz();
+      }
+    } else {
+      timer = timer - 10;
+    }
+  }
 }
