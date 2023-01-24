@@ -72,7 +72,6 @@ function checkAnswer(event) {
       } else {
         startQuiz();
       }
-    } else {
       timer = timer - 10;
     }
   }
