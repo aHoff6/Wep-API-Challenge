@@ -10,33 +10,41 @@
 </head>
 <nav id="highScore">
     <a href="">High Scores</a>
-    <p id="time"></p>
+    <p hidden id="time" class="time"></p>
 </nav>
 
 <body>
-
+    
     <!-- home page header and instruction text-->
     <div id="startDiv" class="intro">
         <h1 id="title">Coding Quiz Challenge</h1>
         <p id="stimulous">Try to answer the following code-related questions within the time limit. Keep in mind that
             incorrect answers
-            will penalize your score/time by 15 seconds!</p>
+            will penalize your score/time by 10 seconds!</p>
         <button id="startBtn">Start Quiz</button>
     </div>
     <div hidden id="questionContainer">
         <h2 id="questionDisplay"></h2>
-
+        
         <div id="answerList">
             <button class="button chosenAnswer"></button>
             <button class="button chosenAnswer"></button>
             <button class="button chosenAnswer"></button>
             <button class="button chosenAnswer"></button>
         </div>
-
-
     </div>
-
-
+    <div hidden id="score">
+        <h2>Quiz Complete</h2>
+        <p>Your score is: <span id="userScore"></span></p>
+        <div>Enter your initials <input type="text" id="initials"><button id="submitScore">Submit</button></div>
+    </div>
+    <div hidden class="highScoreContainer" id="displayHighScores" >
+        <h1>High Scores</h1>
+        <ol id="high-scores"></ol>  
+        <button id="go-back">Go back</button><button id="clear-scores">Clear High Scores</button>
+    </div>
+    <div id="answerAlert" class="answerAlert"><span id="alertDisplay"></span></div>
+    
     <script src="assets/script.js"></script>
 </body>
 

@@ -8,8 +8,14 @@ body {
   text-align: center;
 }
 
+.chosenAnswer {
+display: flex;
+justify-content: left;
+}
 
-
+#answerAlert {
+  justify-content: center;
+}
 
 
 h1 {
